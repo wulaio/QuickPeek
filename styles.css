@@ -1,0 +1,96 @@
+/* QuickPeek overlay styles */
+.qp-container {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 720px;
+  height: 540px;
+  background: #111;
+  color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  overflow: hidden;
+  z-index: 2147483647; /* max */
+  display: none;
+  /* global scroll is locked via JS when panel opens */
+}
+
+.qp-container.qp-visible { display: flex; flex-direction: column; }
+
+.qp-header {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(180deg, #1c1c1c, #121212);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  user-select: none;
+  cursor: move;
+  padding: 0 8px;
+}
+
+.qp-title { flex: 1; font-size: 12px; color: #bdbdbd; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.qp-btn {
+  appearance: none;
+  border: none;
+  background: #1f1f1f;
+  color: #e0e0e0;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.qp-btn:hover { background: #2a2a2a; }
+
+.qp-iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  background: #fff;
+  /* page scroll lock handled in JS */
+}
+
+.qp-resize {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 0 50%, rgba(255,255,255,0.25) 50%);
+}
+
+.qp-banner {
+  position: absolute;
+  left: 8px; right: 8px; top: 44px;
+  background: rgba(255, 193, 7, 0.12);
+  color: #f1c40f;
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* (badge removed) */
+
+/* lightweight settings popover */
+.qp-settings {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  min-width: 220px;
+  background: #171717;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  padding: 10px;
+  color: #e5e7eb;
+  font-size: 12px;
+  z-index: 2;
+}
+.qp-settings h4 { margin: 0 0 8px; font-size: 12px; color:#c7c7c7; }
+.qp-settings .row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin: 6px 0; }
+.qp-settings label { color:#cfcfcf; }
+.qp-settings select, .qp-settings input[type="checkbox"] { outline: none; background:#1f1f1f; color:#e0e0e0; border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:4px 6px; }
+.qp-settings .hint { color:#9ca3af; margin-top: 6px; }
